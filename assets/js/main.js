@@ -4,32 +4,64 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Navigation Toggle
+  // 1. Mobile Navigation Toggle & Drawer
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
+  let navBackdrop = document.getElementById('navBackdrop');
+
+  if (!navBackdrop) {
+    navBackdrop = document.createElement('div');
+    navBackdrop.id = 'navBackdrop';
+    navBackdrop.className = 'nav-backdrop';
+    document.body.appendChild(navBackdrop);
+  }
+
+  const openDrawer = () => {
+    navMenu?.classList.add('open');
+    navToggle?.classList.add('open');
+    navToggle?.setAttribute('aria-expanded', 'true');
+    navBackdrop?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeDrawer = () => {
+    navMenu?.classList.remove('open');
+    navToggle?.classList.remove('open');
+    navToggle?.setAttribute('aria-expanded', 'false');
+    navBackdrop?.classList.remove('active');
+    document.body.style.overflow = '';
+  };
 
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('open');
-      navToggle.classList.toggle('open', isOpen);
-      navToggle.setAttribute('aria-expanded', isOpen);
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navMenu.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
     });
 
+    // Close button inside drawer
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', closeDrawer);
+    }
+
+    // Close on backdrop click
+    navBackdrop.addEventListener('click', closeDrawer);
+
     // Close on link click
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
+    navMenu.querySelectorAll('.nav-link, .mobile-nav-cta').forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        navToggle.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        closeDrawer();
       });
     });
 
-    // Close on click outside
-    document.addEventListener('click', (e) => {
-      if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open');
-        navToggle.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeDrawer();
       }
     });
   }
