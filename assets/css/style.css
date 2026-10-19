@@ -2233,6 +2233,17 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .gallery-card,
+  .gallery-card.featured {
+    grid-column: span 1;
+    height: 230px;
+  }
+
   .timeline-grid {
     grid-template-columns: 1fr;
   }
@@ -2242,6 +2253,10 @@ textarea.form-control {
   }
 
   .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-mission-grid {
     grid-template-columns: 1fr;
   }
 
