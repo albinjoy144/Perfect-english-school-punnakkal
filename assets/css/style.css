@@ -126,8 +126,8 @@ ul, ol {
   max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* ===================================================================
@@ -137,7 +137,7 @@ ul, ol {
   background: linear-gradient(90deg, #620d1c 0%, #8b1528 50%, #620d1c 100%);
   color: #fff;
   font-size: 0.85rem;
-  padding: 0.55rem 0;
+  padding: 0.55rem 1rem;
   border-bottom: 1px solid rgba(212, 175, 55, 0.3);
   position: relative;
   z-index: 50;
@@ -149,6 +149,8 @@ ul, ol {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .top-bar-left {
@@ -229,7 +231,7 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0.85rem 0.5rem;
 }
 
 /* Brand Logo */
@@ -241,10 +243,10 @@ ul, ol {
 }
 
 .brand-logo-frame {
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  padding: 2.5px;
+  padding: 3px;
   background: linear-gradient(135deg, #f59e0b, #d4af37, #fef08a, #b89222);
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
   position: relative;
@@ -261,7 +263,7 @@ ul, ol {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   background: #620d1c;
 }
 
@@ -2297,19 +2299,24 @@ textarea.form-control {
 
 @media (max-width: 580px) {
 
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
   .nav-wrap {
-    padding: 0.5rem 0;
+    padding: 0.75rem 0.6rem;
   }
 
   .brand {
-    gap: 0.55rem;
-    max-width: calc(100% - 50px);
+    gap: 0.65rem;
+    max-width: calc(100% - 55px);
   }
 
   .brand-logo-frame {
     width: 44px;
     height: 44px;
-    padding: 2px;
+    padding: 2.5px;
   }
 
   .brand-title {
