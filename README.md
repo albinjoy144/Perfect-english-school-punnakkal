@@ -46,4 +46,4 @@ Official modern responsive website for **Perfect English School, Punnakkal**, an
 ---
 
 ## 📍 Location
-Perfect English School, Punnakkal, Malappuram District, Kerala, India - 676503.
+Perfect English School, Punnakkal, Kozhikode District, Kerala, India - 673603.
